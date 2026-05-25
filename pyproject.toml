@@ -1,0 +1,53 @@
+[build-system]
+  requires = ["setuptools>=68"]
+  build-backend = "setuptools.build_meta"
+
+  [project]
+  name = "passhouse"
+  version = "0.1.0"
+  description = "Small encrypted local secrets vault with explicit safety notes."
+  readme = "README.md"
+  requires-python = ">=3.10"
+  license = "MIT"
+  authors = [{ name = "Nripanka Das" }]
+  keywords = [
+    "passwords",
+"secrets",
+"vault",
+"encryption",
+"python"
+  ]
+  classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities"
+  ]
+  dependencies = [
+    "cryptography>=42"
+  ]
+
+  [project.optional-dependencies]
+  dev = ["pytest>=8", "build>=1.2", "ruff>=0.6"]
+
+  [project.scripts]
+  passhouse = "passhouse.cli:main"
+
+  [project.urls]
+  Homepage = "https://github.com/nripankadas07/passhouse"
+  Repository = "https://github.com/nripankadas07/passhouse"
+  Issues = "https://github.com/nripankadas07/passhouse/issues"
+
+  [tool.pytest.ini_options]
+  testpaths = ["tests"]
+
+  [tool.ruff]
+  line-length = 100
+  target-version = "py310"
+
+  [tool.setuptools.packages.find]
+  where = ["src"]
